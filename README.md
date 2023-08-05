@@ -1,9 +1,27 @@
 # ROBLOX ACCOUNT GENERATOR
 
+<p align= "center">
+   <br><br>
+   <img src="https://img.shields.io/github/languages/top/accompts/Roblox-Account-Generator">
+   <img src="https://img.shields.io/github/stars/accompts/Roblox-Account-Generator">
+   <img src="https://img.shields.io/github/forks/accompts/Roblox-Account-Generator">
+   <br>
+   <img src="https://img.shields.io/github/last-commit/accompts/Roblox-Account-Generator">
+   <img src="https://img.shields.io/github/license/accompts/Roblox-Account-Generator">
+   <br>
+   <img src="https://img.shields.io/github/issues/accompts/Roblox-Account-Generator">
+   <img src="https://img.shields.io/github/issues-closed/accompts/Roblox-Account-Generator">
+   <br>
+   <br>
+</p>
+
+
+
 * Author: [@accompts](https://t.me/accompts)
 
 This tool automates the process of creating Roblox accounts using Selenium
 
+  
 ### Prerequisites
 
 You will need Python 3 installed. 
