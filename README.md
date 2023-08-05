@@ -21,7 +21,7 @@ cd Roblox-Account-Generator
 pip3 install -r requirements.txt
 ```
 
-Now you will need to open main.py and go to line 16 and add your http proxies in the same format.
+Now you will need to open main.py and go to line 15 and add your http proxies in the same format.
 
 Last step:
 
