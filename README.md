@@ -53,5 +53,5 @@ python3 main.py
 
 1. [x] Captcha bypass
 2. [x] Proxy support
-3. [ ] Faster
+3. [ ] Proxyless Version
 4. [ ] Fix Bugs
