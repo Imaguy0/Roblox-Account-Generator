@@ -1,6 +1,7 @@
-# CAPTCHA BYPASS
-## KINDA BUGGY STILL NOT DONE
 
+# KINDA BUGGY STILL NOT DONE
+
+## Has a captcha bypasser.
 <p align= "center">
    <br><br>
    <img src="https://img.shields.io/github/languages/top/accompts/Roblox-Account-Generator">
