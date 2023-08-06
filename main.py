@@ -24,10 +24,21 @@ ips = ["ip:port", "ip:port"]
 #
 #
 #
-def clear_last_lines(num_lines):
-    sys.stdout.write(f"\033[{num_lines}A")
-    sys.stdout.write("\033[2K" * num_lines)
-    sys.stdout.flush()
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -106,9 +117,10 @@ while usernameloop == True:
         usernameloop = True
     else:
         usernameloop = False
-        time.sleep(2)
-        
+        time.sleep(1)
+
 print("Now enter the password you would like to use for each account:")
+
 password = input()
 
 gpuloop = True
@@ -131,25 +143,64 @@ while gpuloop == True:
         print("y = yes")
         print("n = no")
         gpuloop = True
+#headlessLoop = True
+#while headlessLoop == True:
+    #print("Would you like to enable headless mode? (INVISIBLE) y/n")
+    #headlessq = input()
+    #headlessq = headlessq.lower()
+    #if headlessq == "y":
+    #    print("Headless mode will be enabled")
+    #    time.sleep(1)
+    #    headlessLoop = False
+    #    headless = True
+    #elif headlessq == "n":
+    #    print("Headless mode will not be used.")
+    #    time.sleep(1)
+    #    headlessLoop = False
+    #    headless = False
+    #else:
+    #    print("Invalid. Please respond with Y or N")
+    #    print("y = yes")
+    #    print("n = no")
+    #    headlessLoop = True
+#
+#  HEADLESS COMING SOON STILL BUGGY.
 
-for count in range(1, amountAccs + 1): 
-    proxy_ip_port = random.choice(ips)
+
+
+
+for count in range(1, amountAccs + 1):  # Include the last value in the loop
+
+    proxy_address = random.choice(ips)
+
+    # Create a Proxy object and set the proxy address
     proxy = Proxy()
     proxy.proxy_type = ProxyType.MANUAL
-    proxy.http_proxy = proxy_ip_port
-    proxy.ssl_proxy = proxy_ip_port
+    proxy.http_proxy = proxy_address
+    proxy.ssl_proxy = proxy_address
 
-    options = webdriver.FirefoxOptions()
+    options = webdriver.ChromeOptions()
 
     if gpu == True:
-        options.add_argument("--disable-gpu") 
+        options.add_argument("--disable-gpu")
     else:
         gpu = False
+    #if headless == True:
+    #    options.add_argument("--headless")
+    #else:
+    #    headless = False
+    # COMING SOON
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-infobars')
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--disable-blink-features=AutomationControlled')
+    options.add_argument(f'--proxy-server={proxy_address}')
 
-    options.add_argument(f'--proxy-server=http://{proxy_ip_port}')
+    with open('ext.crx', 'wb') as f:
+        f.write(requests.get('https://nopecha.com/f/ext.crx').content)
+    options.add_extension('ext.crx')
 
-    driver = webdriver.Firefox(options=options) 
-
+    driver = webdriver.Chrome(options=options)    
     driver.get("https://roblox.com/")
 
     random4number = str(random.randint(1, 9)) + str(random.randint(1, 9)) + str(random.randint(1, 9)) + str(random.randint(1, 9))
@@ -159,7 +210,6 @@ for count in range(1, amountAccs + 1):
         driver.find_element(By.CLASS_NAME, "cookie-banner-bg").click()
     except NoSuchElementException:
         print("No cookie banner")
-
     # username
     driver.find_element(By.ID, "signup-username").send_keys(username)
 
@@ -420,7 +470,9 @@ for count in range(1, amountAccs + 1):
                     print("Invalid response retry.")
                     diffPassLoop = True
         else:
-            print("Password is valid password")
+            signupButton = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "signup-button")))
+            signupButton.click()
+
     except TimeoutException:
         print("password validation element not found")
 
@@ -431,8 +483,6 @@ for count in range(1, amountAccs + 1):
         with open('accounts.txt', 'a') as file:
             file.write(username + ":" + password + "\n")
     except TimeoutException:
-        print("Captcha might be displayed.")
-        print("You 200 seconds to do the captcha or quit..")
         try:
             WebDriverWait(driver, 200).until(EC.visibility_of_element_located((By.ID, "nav-settings")))
             with open('accounts.txt', 'a') as file:
