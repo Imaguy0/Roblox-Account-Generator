@@ -1,4 +1,4 @@
-# ROBLOX ACCOUNT GENERATOR
+# KINDA BUGGY STILL NOT DONE
 
 <p align= "center">
    <br><br>
@@ -49,6 +49,7 @@ python3 main.py
 
 ## 📝 ToDo
 
-1. [ ] Captcha bypass
+1. [x] Captcha bypass
 2. [x] Proxy support
 3. [ ] Faster
+4. [ ] Fix Bugs
