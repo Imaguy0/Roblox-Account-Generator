@@ -104,7 +104,6 @@ ___<__(|) _   **-/  / /   /
 """)
 print("How many accounts?")
 amountAccs = int(input())  # Convert the input to an integer
-clear_last_lines(2)
 
 gpu = False
 usernameloop = True
