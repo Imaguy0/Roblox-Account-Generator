@@ -13,9 +13,10 @@ import requests
 #
 #
 #
-ips = ["ip:port", "ip:port"]
-# Add your proxies above (AS MANY AS YOU WANT)
-# Make sure your proxy settings are on IP authentification not username/password
+# Read the file containing proxies
+proxy_file = 'proxies.txt'
+with open(proxy_file, 'r') as file:
+    ips = [line.strip() for line in file if line.strip()]
 #
 #
 #
